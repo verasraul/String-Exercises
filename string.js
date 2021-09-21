@@ -5,7 +5,18 @@
 // DrEvil(10): 10 dollars
 // DrEvil(1000000): 1000000 dollars (pinky)
 // answer below:
+function DrEvil(amount) {
 
+  if (amount >= 1000000) {
+    console.log(amount + " dollars (pinky)")
+  }
+  else {
+    console.log(amount + " dollars");
+  }
+}
+
+DrEvil(10);
+DrEvil(1000000);
 
 
 
@@ -19,7 +30,10 @@
 //mixUp('mix', 'pod'): 'pox mid'
 //mixUp('dog', 'dinner'): 'dig donner'
 //write answer below 
-
+function mixUp (str1, str2) {
+    return str2.slice(0, 2) + str1.slice(2) + " " + str1.slice(0, 2) + str2.slice(2);
+  }
+  console.log(mixUp("Mix", "Pod"));
 
 
 
@@ -30,7 +44,11 @@
 //character have been replaced with '*', except for the character itself. 
 //fixstart('babble'): 'ba**le'
 //write answer below
-
+function fixStart(item) {
+    let word = item.slice(1)
+    return item[0] + word.replace(/p/g, '*');
+  }
+  console.log(fixStart("Popcorn"));
 
 
 
@@ -44,9 +62,24 @@
 //verbing('swimming'): 'swimmingly'
 //verbing('go'): 'go'
 //write answer below
-
-
-
+function verbing(str) {
+    if (str.length < 3) {
+      return str;
+    }
+    else if (str.length >= 3 && str.slice(-3) != "ing") {
+      if (str.endsWith("m")) {
+        return str + "ming";
+      }
+      else {
+        return str + "ing";
+      }
+    }
+    else if (str.length >= 3 && str.slice(-3) == "ing") {
+      return str + "ly";
+    }
+  }
+  
+  console.log(verbing("swim"))
 
 
 
@@ -62,4 +95,14 @@
 //notBad('This dinner is not that bad!'): 'This dinner is good!'
 //notBad('This movie is not so bad!'): 'This movie is good!'
 //notBad('This dinner is bad!'): 'This dinner is bad!'
-//write answer below 
+//write answer below
+
+function notBad(sentence) {
+    let notIndex = sentence.indexOf('not');
+    let badIndex = sentence.indexOf('bad');
+    if (notIndex == -1 || badIndex == -1 || badIndex < notIndex) return sentence;
+    return sentence.slice(0, notIndex) + 'good' + sentence.slice(badIndex + 3);
+  }
+  
+  p = notBad("this is not that great but can be bad like anything else")
+  console.log(p);
