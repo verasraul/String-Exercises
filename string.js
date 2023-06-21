@@ -104,5 +104,5 @@ function notBad(sentence) {
     return sentence.slice(0, notIndex) + 'good' + sentence.slice(badIndex + 3);
   }
   
-  p = notBad("this is not that great but can be bad like anything else")
+  p = notBad("This movie is not so bad!")
   console.log(p);
